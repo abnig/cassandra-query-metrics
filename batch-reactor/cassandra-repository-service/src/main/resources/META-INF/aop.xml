@@ -1,0 +1,10 @@
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+	<weaver options="-verbose -showWeaveInfo">
+		<include within="com.datastax.driver.core.QueryLogger" />
+		 <include within="com.springexample.boot.aop.*"/>
+	</weaver>
+	<aspects>
+		<aspect name="com.springexample.boot.aop.AppInfoParserAspect" />
+	</aspects>
+</aspectj>
