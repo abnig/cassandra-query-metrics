@@ -1,8 +1,8 @@
 <!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
 <aspectj>
-	<weaver options="-verbose -showWeaveInfo">
-		<include within="com.datastax.driver.core.QueryLogger" />
-		 <include within="com.springexample.boot.aop.*"/>
+	<weaver options="-Xset:weaveJavaxPackages=true -verbose -showWeaveInfo">
+		<include within="com.datastax.driver.core.QueryLogger..*" />
+		 <include within="com.springexample.boot.aop.AppInfoParserAspect"/>
 	</weaver>
 	<aspects>
 		<aspect name="com.springexample.boot.aop.AppInfoParserAspect" />

@@ -1,21 +1,27 @@
 package com.springexample.boot.runner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
-import com.springexample.boot.conf.CassandraConfiguration;
 import com.springexample.boot.repository.service.DepartmentService;
 
-@EnableAutoConfiguration
 @SpringBootApplication
-public class MainRunner {
+@ComponentScan(basePackages = {"com.springexample.boot"})
+public class MainRunner implements CommandLineRunner {
+	
+	@Autowired
+	private DepartmentService departmentService;
 
 	public static void main(String[] args) {
-		ApplicationContext ctx = SpringApplication.run(CassandraConfiguration.class, args);
-		DepartmentService job = ctx.getBean(DepartmentService.class);
-		System.out.println(job.findByName("IT"));
+		SpringApplication.run(MainRunner.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println(this.departmentService.findByName("IT"));		
 	}
 
 }

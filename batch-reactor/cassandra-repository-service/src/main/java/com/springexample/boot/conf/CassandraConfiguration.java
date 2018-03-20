@@ -3,6 +3,7 @@ package com.springexample.boot.conf;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableLoadTimeWeaving;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.cassandra.config.CassandraSessionFactoryBean;
 import org.springframework.data.cassandra.config.SchemaAction;
@@ -16,6 +17,7 @@ import org.springframework.data.cassandra.repository.config.EnableCassandraRepos
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.QueryLogger;
 
+@EnableLoadTimeWeaving
 @Configuration
 @PropertySource(value = "application.properties")
 @EnableCassandraRepositories(basePackages = { "com.springexample.boot" })
