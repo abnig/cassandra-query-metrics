@@ -30,7 +30,7 @@ public class ApplicationTests {
 	
 	@Test
 	public void testFindByName() {
-		Iterable<Employee> e = this.employeeService.findByName("Abhinav");
+		Iterable<Employee> e = this.employeeService.findByName("Ankur");
 		
 	}
 
