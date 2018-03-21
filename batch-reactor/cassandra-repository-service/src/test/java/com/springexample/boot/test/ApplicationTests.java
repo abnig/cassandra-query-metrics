@@ -31,7 +31,7 @@ public class ApplicationTests {
 	@Test
 	public void testFindByName() {
 		Iterable<Employee> e = this.employeeService.findByName("Ankur");
-		
+			e.forEach(employee -> System.out.println(employee.toString()));
 	}
 
 }
