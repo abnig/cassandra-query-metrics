@@ -8,7 +8,7 @@
 	<modules>
 		<module>cassandra-repository-service</module>
 	</modules>
-
+	<!-- Commented -->
 	<repositories>
 		<repository>
 			<id>spring-releases</id>
